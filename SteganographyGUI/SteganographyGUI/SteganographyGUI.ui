@@ -168,5 +168,58 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionOpen</sender>
+   <signal>triggered()</signal>
+   <receiver>SteganographyGUIClass</receiver>
+   <slot>openBMP()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>486</x>
+     <y>366</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>SteganographyGUIClass</sender>
+   <signal>sendPixmap(QPixmap)</signal>
+   <receiver>imageLabel</receiver>
+   <slot>setPixmap(QPixmap)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>38</x>
+     <y>341</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>116</x>
+     <y>344</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionClose</sender>
+   <signal>triggered()</signal>
+   <receiver>SteganographyGUIClass</receiver>
+   <slot>closeBMP()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>486</x>
+     <y>366</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
+ <slots>
+  <signal>sendPixmap(QPixmap)</signal>
+  <slot>openBMP()</slot>
+  <slot>closeBMP()</slot>
+ </slots>
 </ui>

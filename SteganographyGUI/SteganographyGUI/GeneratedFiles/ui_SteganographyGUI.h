@@ -103,6 +103,9 @@ public:
 
         retranslateUi(SteganographyGUIClass);
         QObject::connect(actionExit, SIGNAL(triggered()), SteganographyGUIClass, SLOT(close()));
+        QObject::connect(actionOpen, SIGNAL(triggered()), SteganographyGUIClass, SLOT(openBMP()));
+        QObject::connect(SteganographyGUIClass, SIGNAL(sendPixmap(QPixmap)), imageLabel, SLOT(setPixmap(QPixmap)));
+        QObject::connect(actionClose, SIGNAL(triggered()), SteganographyGUIClass, SLOT(closeBMP()));
 
         QMetaObject::connectSlotsByName(SteganographyGUIClass);
     } // setupUi

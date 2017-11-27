@@ -10,6 +10,13 @@ class SteganographyGUI : public QMainWindow
 public:
 	SteganographyGUI(QWidget *parent = Q_NULLPTR);
 
+public slots:
+	void openBMP(void);
+	void closeBMP(void);
+
+signals:
+	void sendPixmap(QPixmap);
+
 private:
 	Ui::SteganographyGUIClass ui;
 };
