@@ -1,10 +1,10 @@
-#include "Steganography.h"
+#include "SteganographyGUI.h"
 #include <QtWidgets/QApplication>
 
 int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
-	Steganography w;
+	SteganographyGUI w;
 	w.show();
 	return a.exec();
 }

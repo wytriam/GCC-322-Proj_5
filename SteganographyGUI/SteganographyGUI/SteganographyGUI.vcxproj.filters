@@ -29,12 +29,12 @@
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
     <Filter Include="Generated Files\Debug">
-      <UniqueIdentifier>{1db5bb20-3261-4662-844b-11247e676f33}</UniqueIdentifier>
+      <UniqueIdentifier>{aac4d959-2110-414f-8078-2e3409617909}</UniqueIdentifier>
       <Extensions>cpp;moc</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
     <Filter Include="Generated Files\Release">
-      <UniqueIdentifier>{43e9da48-c3b5-4ad5-9637-f5165f3e9179}</UniqueIdentifier>
+      <UniqueIdentifier>{e8c4065e-efe5-4315-b7ea-e45e4306c026}</UniqueIdentifier>
       <Extensions>cpp;moc</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
@@ -43,32 +43,32 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Steganography.cpp">
+    <ClCompile Include="SteganographyGUI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_Steganography.cpp">
+    <ClCompile Include="GeneratedFiles\Debug\moc_SteganographyGUI.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_Steganography.cpp">
+    <ClCompile Include="GeneratedFiles\Release\moc_SteganographyGUI.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\qrc_Steganography.cpp">
+    <ClCompile Include="GeneratedFiles\qrc_SteganographyGUI.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="Steganography.h">
+    <CustomBuild Include="SteganographyGUI.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="Steganography.ui">
+    <CustomBuild Include="SteganographyGUI.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="Steganography.qrc">
+    <CustomBuild Include="SteganographyGUI.qrc">
       <Filter>Resource Files</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GeneratedFiles\ui_Steganography.h">
+    <ClInclude Include="GeneratedFiles\ui_SteganographyGUI.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>
