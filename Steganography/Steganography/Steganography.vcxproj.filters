@@ -29,12 +29,12 @@
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
     <Filter Include="Generated Files\Debug">
-      <UniqueIdentifier>{7c53df7a-ccea-44b0-bc81-b6be4077ddd0}</UniqueIdentifier>
+      <UniqueIdentifier>{1db5bb20-3261-4662-844b-11247e676f33}</UniqueIdentifier>
       <Extensions>cpp;moc</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
     <Filter Include="Generated Files\Release">
-      <UniqueIdentifier>{c801e567-f7fa-4dbf-a362-fffa8d696e49}</UniqueIdentifier>
+      <UniqueIdentifier>{43e9da48-c3b5-4ad5-9637-f5165f3e9179}</UniqueIdentifier>
       <Extensions>cpp;moc</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
@@ -43,32 +43,32 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HW5_Starter.cpp">
+    <ClCompile Include="Steganography.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_HW5_Starter.cpp">
+    <ClCompile Include="GeneratedFiles\Debug\moc_Steganography.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_HW5_Starter.cpp">
+    <ClCompile Include="GeneratedFiles\Release\moc_Steganography.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\qrc_HW5_Starter.cpp">
+    <ClCompile Include="GeneratedFiles\qrc_Steganography.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="HW5_Starter.h">
+    <CustomBuild Include="Steganography.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="HW5_Starter.ui">
+    <CustomBuild Include="Steganography.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="HW5_Starter.qrc">
+    <CustomBuild Include="Steganography.qrc">
       <Filter>Resource Files</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GeneratedFiles\ui_HW5_Starter.h">
+    <ClInclude Include="GeneratedFiles\ui_Steganography.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>
