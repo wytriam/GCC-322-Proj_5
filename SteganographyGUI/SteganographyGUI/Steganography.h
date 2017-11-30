@@ -4,19 +4,20 @@
 class Steganography
 {
 public:
-	Steganography(unsigned char*, int, int);
+	Steganography(unsigned char*, int);
 	
 	void write(std::string);
 	std::string read();
-	int findCapacity();
+	int getCapacity();
 
 private: 
 	void write(char);
 	char readChar();
+	bool readBit(char);
 
 	unsigned char* data;
-	int width;
-	int height;
+
+	int capacity;
 
 	int readIdx;
 	int writeIdx;

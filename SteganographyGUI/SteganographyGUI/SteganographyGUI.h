@@ -2,6 +2,9 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_SteganographyGUI.h"
+#include <BMP_Handler.h>
+#include "Steganography.h"
+#include <string>
 
 class SteganographyGUI : public QMainWindow
 {
@@ -13,6 +16,9 @@ public:
 public slots:
 	void openBMP(void);
 	void closeBMP(void);
+
+	void readBMP(void);
+	void writeBMP(std::string);
 
 signals:
 	void sendPixmap(QPixmap);
