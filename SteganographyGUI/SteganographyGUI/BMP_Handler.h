@@ -4,6 +4,7 @@
 #define BMP_API __declspec(dllexport)
 #else
 #define BMP_API __declspec(dllimport)
+#pragma comment(lib, "BMP_Handler32d.lib")
 #endif
 
 class BMP_Handler {

@@ -33,7 +33,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QTextEdit" name="messageBox">
+   <widget class="SecretMessageTextEdit" name="messageBox">
     <property name="geometry">
      <rect>
       <x>80</x>
@@ -148,6 +148,17 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>SecretMessageTextEdit</class>
+   <extends>QTextEdit</extends>
+   <header>secretmessagetextedit.hpp</header>
+   <slots>
+    <signal>sendTextSignal(QString)</signal>
+    <slot>sendTextSlot()</slot>
+   </slots>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="SteganographyGUI.qrc"/>
  </resources>
@@ -233,22 +244,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>writeButton</sender>
-   <signal>pressed()</signal>
-   <receiver>SteganographyGUIClass</receiver>
-   <slot>writeBMP()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>840</x>
-     <y>669</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>912</x>
-     <y>668</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>SteganographyGUIClass</sender>
    <signal>readMessage(QString)</signal>
    <receiver>messageBox</receiver>
@@ -264,13 +259,79 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>SteganographyGUIClass</sender>
+   <signal>setCharactersAvailable(QString)</signal>
+   <receiver>charAvailableLabel</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>42</x>
+     <y>568</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>102</x>
+     <y>563</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>writeButton</sender>
+   <signal>pressed()</signal>
+   <receiver>messageBox</receiver>
+   <slot>sendTextSlot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>776</x>
+     <y>675</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>690</x>
+     <y>672</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>messageBox</sender>
+   <signal>sendTextSignal(QString)</signal>
+   <receiver>SteganographyGUIClass</receiver>
+   <slot>writeBMP(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>454</x>
+     <y>601</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>452</x>
+     <y>562</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSave</sender>
+   <signal>triggered()</signal>
+   <receiver>SteganographyGUIClass</receiver>
+   <slot>saveBMP()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>486</x>
+     <y>366</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <signal>sendPixmap(QPixmap)</signal>
   <signal>readMessage(QString)</signal>
+  <signal>setCharactersAvailable(QString)</signal>
   <slot>openBMP()</slot>
   <slot>closeBMP()</slot>
   <slot>readBMP()</slot>
-  <slot>writeBMP()</slot>
+  <slot>writeBMP(QString)</slot>
+  <slot>saveBMP()</slot>
  </slots>
 </ui>

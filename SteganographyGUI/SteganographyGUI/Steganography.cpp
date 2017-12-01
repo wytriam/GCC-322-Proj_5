@@ -28,7 +28,7 @@ void Steganography::write(char c)
 	
 	for (int i = 0; i < 8; i++)
 	{
-		char val = c & 1 << (7 - i);
+		char val = c & (1 << (7 - i));
 		if (val == 0x00) //val is all 0's, indicating that the desired bit was 0
 		{
 			if (readBit(data[writeIdx])) // the last bit of the next char to write is 1. This needs to change to 0. 
@@ -82,7 +82,7 @@ bool Steganography::readBit(char c)
 	return c & 0x01;
 }
 
-int Steganography::getCapacity()
+unsigned char* Steganography::getData()
 {
-	return capacity;
+	return data;
 }

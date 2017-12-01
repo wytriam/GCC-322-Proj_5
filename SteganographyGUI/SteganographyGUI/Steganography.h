@@ -9,7 +9,7 @@ public:
 	
 	void write(std::string);
 	std::string read();
-	int getCapacity();
+	unsigned char* getData();
 
 private: 
 	void write(char);

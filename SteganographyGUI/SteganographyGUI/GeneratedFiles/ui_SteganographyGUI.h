@@ -20,9 +20,9 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
+#include "secretmessagetextedit.hpp"
 
 QT_BEGIN_NAMESPACE
 
@@ -35,7 +35,7 @@ public:
     QAction *actionExit;
     QWidget *centralWidget;
     QLabel *imageLabel;
-    QTextEdit *messageBox;
+    SecretMessageTextEdit *messageBox;
     QPushButton *readButton;
     QPushButton *writeButton;
     QLabel *charAvailableLabel;
@@ -65,7 +65,7 @@ public:
         imageLabel->setGeometry(QRect(80, 10, 791, 471));
         imageLabel->setFrameShape(QFrame::WinPanel);
         imageLabel->setAlignment(Qt::AlignCenter);
-        messageBox = new QTextEdit(centralWidget);
+        messageBox = new SecretMessageTextEdit(centralWidget);
         messageBox->setObjectName(QStringLiteral("messageBox"));
         messageBox->setGeometry(QRect(80, 540, 661, 107));
         readButton = new QPushButton(centralWidget);
@@ -106,6 +106,12 @@ public:
         QObject::connect(actionOpen, SIGNAL(triggered()), SteganographyGUIClass, SLOT(openBMP()));
         QObject::connect(SteganographyGUIClass, SIGNAL(sendPixmap(QPixmap)), imageLabel, SLOT(setPixmap(QPixmap)));
         QObject::connect(actionClose, SIGNAL(triggered()), SteganographyGUIClass, SLOT(closeBMP()));
+        QObject::connect(readButton, SIGNAL(clicked()), SteganographyGUIClass, SLOT(readBMP()));
+        QObject::connect(SteganographyGUIClass, SIGNAL(readMessage(QString)), messageBox, SLOT(setText(QString)));
+        QObject::connect(SteganographyGUIClass, SIGNAL(setCharactersAvailable(QString)), charAvailableLabel, SLOT(setText(QString)));
+        QObject::connect(writeButton, SIGNAL(pressed()), messageBox, SLOT(sendTextSlot()));
+        QObject::connect(messageBox, SIGNAL(sendTextSignal(QString)), SteganographyGUIClass, SLOT(writeBMP(QString)));
+        QObject::connect(actionSave, SIGNAL(triggered()), SteganographyGUIClass, SLOT(saveBMP()));
 
         QMetaObject::connectSlotsByName(SteganographyGUIClass);
     } // setupUi
