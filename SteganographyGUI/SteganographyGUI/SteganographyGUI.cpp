@@ -18,10 +18,15 @@ void SteganographyGUI::openBMP(void)
 	emit sendPixmap(QPixmap(filename));
 
 	// Use the DLL to extract the bool array 
+	int width;
+	int height;
+	unsigned char* data = BMP_Handler::loadBMP(filename.toStdString().c_str(), width, height);
 
 	// determine the maximum number of bits that can be stored in this image
+	int maxBits = (width * 3) * height;
 
 	// Send the pixel array to the Steganography class
+	s = Steganography(data, maxBits);
 }
 
 void SteganographyGUI::closeBMP(void)
@@ -31,10 +36,12 @@ void SteganographyGUI::closeBMP(void)
 
 void SteganographyGUI::readBMP(void)
 {
-
+	QString emitVal = QString(s.read().c_str());
+	
+	emit readMessage(emitVal);
 }
 
-void SteganographyGUI::writeBMP(std::string message)
+void SteganographyGUI::writeBMP()
 {
 
 }

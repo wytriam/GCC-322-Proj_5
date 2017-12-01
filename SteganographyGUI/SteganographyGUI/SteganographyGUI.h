@@ -18,11 +18,13 @@ public slots:
 	void closeBMP(void);
 
 	void readBMP(void);
-	void writeBMP(std::string);
+	void writeBMP();
 
 signals:
 	void sendPixmap(QPixmap);
+	void readMessage(QString);
 
 private:
 	Ui::SteganographyGUIClass ui;
+	Steganography s;
 };

@@ -4,6 +4,7 @@
 class Steganography
 {
 public:
+	Steganography();
 	Steganography(unsigned char*, int);
 	
 	void write(std::string);

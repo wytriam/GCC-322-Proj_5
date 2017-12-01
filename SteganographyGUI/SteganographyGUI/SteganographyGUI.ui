@@ -216,10 +216,61 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>readButton</sender>
+   <signal>clicked()</signal>
+   <receiver>SteganographyGUIClass</receiver>
+   <slot>readBMP()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>842</x>
+     <y>597</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>874</x>
+     <y>553</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>writeButton</sender>
+   <signal>pressed()</signal>
+   <receiver>SteganographyGUIClass</receiver>
+   <slot>writeBMP()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>840</x>
+     <y>669</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>912</x>
+     <y>668</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>SteganographyGUIClass</sender>
+   <signal>readMessage(QString)</signal>
+   <receiver>messageBox</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>32</x>
+     <y>658</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>110</x>
+     <y>663</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <signal>sendPixmap(QPixmap)</signal>
+  <signal>readMessage(QString)</signal>
   <slot>openBMP()</slot>
   <slot>closeBMP()</slot>
+  <slot>readBMP()</slot>
+  <slot>writeBMP()</slot>
  </slots>
 </ui>

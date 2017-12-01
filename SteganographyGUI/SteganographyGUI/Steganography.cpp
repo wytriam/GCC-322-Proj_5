@@ -1,5 +1,7 @@
 #include "Steganography.h"
 
+Steganography::Steganography() {}
+
 Steganography::Steganography(unsigned char* data, int capacity) : data(data), capacity(capacity) 
 {
 	writeIdx = 0;
