@@ -54,5 +54,6 @@ void SteganographyGUI::writeBMP(QString message)
 void SteganographyGUI::saveBMP(void)
 {
 	QString filename = QFileDialog::getSaveFileName(this, tr("Save File"), QString(), tr("Images (*.bmp)"));
+	if (filename.isEmpty()) return;
 	BMP_Handler::saveBMP(filename.toStdString().data(), s.getData(), height, width);
 }

@@ -16,6 +16,7 @@ void Steganography::write(std::string message)
 	{
 		write(message[i]);
 	}
+	write(0x00);
 }
 
 void Steganography::write(char c)
@@ -28,7 +29,7 @@ void Steganography::write(char c)
 	
 	for (int i = 0; i < 8; i++)
 	{
-		char val = c & (1 << (7 - i));
+		char val = c & (0x01 << (7 - i));
 		if (val == 0x00) //val is all 0's, indicating that the desired bit was 0
 		{
 			if (readBit(data[writeIdx])) // the last bit of the next char to write is 1. This needs to change to 0. 
@@ -59,19 +60,21 @@ std::string Steganography::read()
 
 char Steganography::readChar()
 {
-	char returnVal = 0x00;
+	unsigned char returnVal = 0x00;
 	for (int i = 0; i < 8; i++)
 	{
 		// put a 1 at the end of c. If this should instead be a 0, nothing will be added
 		if (readBit(data[readIdx]))
 		{
-			returnVal = returnVal & 0x01;
+			returnVal = returnVal | 0x01;
 		}
 		// shift everything left
 		returnVal = returnVal << 1;
 		// increment readIdx
 		readIdx++;
 	}
+
+	returnVal >>= 1;
 
 	return returnVal;
 }
