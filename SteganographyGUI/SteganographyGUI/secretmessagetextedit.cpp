@@ -12,3 +12,8 @@ void SecretMessageTextEdit::sendTextSlot(void)
 {
 	emit sendTextSignal(QString(toPlainText()));
 }
+
+void SecretMessageTextEdit::sendUpdateSlot(void)
+{
+	emit sendUpdateSignal(QString(toPlainText()));
+}

@@ -20,11 +20,13 @@ public slots:
 
 	void readBMP(void);
 	void writeBMP(QString);
+	void updateCharRemainingSlot(QString);
 
 signals:
 	void sendPixmap(QPixmap);
 	void readMessage(QString);
 	void setCharactersAvailable(QString);
+	void updateCharRemaining(QString);
 
 private:
 	Ui::SteganographyGUIClass ui;

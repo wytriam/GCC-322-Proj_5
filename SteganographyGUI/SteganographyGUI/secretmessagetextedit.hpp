@@ -10,9 +10,11 @@ public:
 
 public slots:
 	void sendTextSlot(void);
+	void sendUpdateSlot(void);
 
 signals: 
 	void sendTextSignal(QString);
+	void sendUpdateSignal(QString);
 
 private:
 	

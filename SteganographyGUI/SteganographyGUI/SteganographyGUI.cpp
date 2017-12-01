@@ -37,6 +37,7 @@ void SteganographyGUI::closeBMP(void)
 {
 	emit sendPixmap(QPixmap());
 	emit setCharactersAvailable(QString("Characters Available:"));
+	emit readMessage(QString());
 }
 
 void SteganographyGUI::readBMP(void)
@@ -54,6 +55,13 @@ void SteganographyGUI::writeBMP(QString message)
 void SteganographyGUI::saveBMP(void)
 {
 	QString filename = QFileDialog::getSaveFileName(this, tr("Save File"), QString(), tr("Images (*.bmp)"));
-	if (filename.isEmpty()) return;
+	if(filename.isEmpty()) return;
 	BMP_Handler::saveBMP(filename.toStdString().data(), s.getData(), height, width);
+}
+
+void SteganographyGUI::updateCharRemainingSlot(QString input)
+{
+	int num = maxBits - input.length();
+	std::string msg = "Characters Remaining" + std::to_string(num);
+	emit updateCharRemaining(QString(msg.data()));
 }
