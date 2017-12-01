@@ -79,7 +79,7 @@ public:
         charAvailableLabel->setGeometry(QRect(80, 510, 221, 19));
         charRemainingLabel = new QLabel(centralWidget);
         charRemainingLabel->setObjectName(QStringLiteral("charRemainingLabel"));
-        charRemainingLabel->setGeometry(QRect(540, 510, 251, 19));
+        charRemainingLabel->setGeometry(QRect(510, 510, 251, 19));
         SteganographyGUIClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(SteganographyGUIClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -107,7 +107,7 @@ public:
         QObject::connect(SteganographyGUIClass, SIGNAL(sendPixmap(QPixmap)), imageLabel, SLOT(setPixmap(QPixmap)));
         QObject::connect(actionClose, SIGNAL(triggered()), SteganographyGUIClass, SLOT(closeBMP()));
         QObject::connect(readButton, SIGNAL(clicked()), SteganographyGUIClass, SLOT(readBMP()));
-        QObject::connect(SteganographyGUIClass, SIGNAL(readMessage(QString)), messageBox, SLOT(setText(QString)));
+        QObject::connect(SteganographyGUIClass, SIGNAL(setMessageBox(QString)), messageBox, SLOT(setText(QString)));
         QObject::connect(SteganographyGUIClass, SIGNAL(setCharactersAvailable(QString)), charAvailableLabel, SLOT(setText(QString)));
         QObject::connect(writeButton, SIGNAL(clicked()), messageBox, SLOT(sendTextSlot()));
         QObject::connect(messageBox, SIGNAL(sendTextSignal(QString)), SteganographyGUIClass, SLOT(writeBMP(QString)));
@@ -115,6 +115,7 @@ public:
         QObject::connect(messageBox, SIGNAL(textChanged()), messageBox, SLOT(sendUpdateSlot()));
         QObject::connect(SteganographyGUIClass, SIGNAL(updateCharRemaining(QString)), charRemainingLabel, SLOT(setText(QString)));
         QObject::connect(messageBox, SIGNAL(sendUpdateSignal(QString)), SteganographyGUIClass, SLOT(updateCharRemainingSlot(QString)));
+        QObject::connect(SteganographyGUIClass, SIGNAL(toggleEnabled(bool)), writeButton, SLOT(setEnabled(bool)));
 
         QMetaObject::connectSlotsByName(SteganographyGUIClass);
     } // setupUi

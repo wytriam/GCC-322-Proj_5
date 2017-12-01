@@ -24,9 +24,10 @@ public slots:
 
 signals:
 	void sendPixmap(QPixmap);
-	void readMessage(QString);
+	void setMessageBox(QString);
 	void setCharactersAvailable(QString);
 	void updateCharRemaining(QString);
+	void toggleEnabled(bool);
 
 private:
 	Ui::SteganographyGUIClass ui;

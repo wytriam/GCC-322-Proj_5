@@ -85,7 +85,7 @@
    <widget class="QLabel" name="charRemainingLabel">
     <property name="geometry">
      <rect>
-      <x>540</x>
+      <x>510</x>
       <y>510</y>
       <width>251</width>
       <height>19</height>
@@ -247,7 +247,7 @@
   </connection>
   <connection>
    <sender>SteganographyGUIClass</sender>
-   <signal>readMessage(QString)</signal>
+   <signal>setMessageBox(QString)</signal>
    <receiver>messageBox</receiver>
    <slot>setText(QString)</slot>
    <hints>
@@ -373,12 +373,29 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>SteganographyGUIClass</sender>
+   <signal>toggleEnabled(bool)</signal>
+   <receiver>writeButton</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>486</x>
+     <y>366</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>815</x>
+     <y>673</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <signal>sendPixmap(QPixmap)</signal>
-  <signal>readMessage(QString)</signal>
+  <signal>setMessageBox(QString)</signal>
   <signal>setCharactersAvailable(QString)</signal>
   <signal>updateCharRemaining(QString)</signal>
+  <signal>toggleEnabled(bool)</signal>
   <slot>openBMP()</slot>
   <slot>closeBMP()</slot>
   <slot>readBMP()</slot>
