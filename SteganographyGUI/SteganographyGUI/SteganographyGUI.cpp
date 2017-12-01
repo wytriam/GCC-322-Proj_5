@@ -38,6 +38,8 @@ void SteganographyGUI::closeBMP(void)
 	emit sendPixmap(QPixmap());
 	emit setCharactersAvailable(QString("Characters Available:"));
 	emit readMessage(QString());
+	emit updateCharRemaining(QString());
+	emit updateCharRemaining(QString());
 }
 
 void SteganographyGUI::readBMP(void)
@@ -61,7 +63,7 @@ void SteganographyGUI::saveBMP(void)
 
 void SteganographyGUI::updateCharRemainingSlot(QString input)
 {
-	int num = maxBits - input.length();
-	std::string msg = "Characters Remaining" + std::to_string(num);
+	int num = maxBits - input.size();
+	std::string msg = "Characters Remaining: " + std::to_string(num);
 	emit updateCharRemaining(QString(msg.data()));
 }

@@ -343,7 +343,7 @@
   </connection>
   <connection>
    <sender>SteganographyGUIClass</sender>
-   <signal>updateCharReceived(QString)</signal>
+   <signal>updateCharRemaining(QString)</signal>
    <receiver>charRemainingLabel</receiver>
    <slot>setText(QString)</slot>
    <hints>
@@ -357,16 +357,33 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>messageBox</sender>
+   <signal>sendUpdateSignal(QString)</signal>
+   <receiver>SteganographyGUIClass</receiver>
+   <slot>updateCharRemainingSlot(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>259</x>
+     <y>658</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>40</x>
+     <y>585</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <signal>sendPixmap(QPixmap)</signal>
   <signal>readMessage(QString)</signal>
   <signal>setCharactersAvailable(QString)</signal>
-  <signal>updateCharReceived(QString)</signal>
+  <signal>updateCharRemaining(QString)</signal>
   <slot>openBMP()</slot>
   <slot>closeBMP()</slot>
   <slot>readBMP()</slot>
   <slot>writeBMP(QString)</slot>
   <slot>saveBMP()</slot>
+  <slot>updateCharRemainingSlot(QString)</slot>
  </slots>
 </ui>
