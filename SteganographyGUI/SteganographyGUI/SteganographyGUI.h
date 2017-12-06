@@ -54,4 +54,6 @@ private:
 	int height;
 	// The width of the current image
 	int width;
+	// Quick Bug Fix
+	bool imageLoaded;
 };

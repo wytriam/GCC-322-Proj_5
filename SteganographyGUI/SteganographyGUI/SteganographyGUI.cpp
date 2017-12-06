@@ -37,6 +37,7 @@ void SteganographyGUI::openBMP(void)
 
 void SteganographyGUI::closeBMP(void)
 {
+	// reset everything
 	emit sendPixmap(QPixmap());
 	emit setCharactersAvailable(QString("Characters Available:"));
 	emit setMessageBox(QString());
@@ -45,6 +46,7 @@ void SteganographyGUI::closeBMP(void)
 
 void SteganographyGUI::readBMP(void)
 {
+	// use the steganography class to read the data, and then send the message to the input box
 	QString emitVal = QString(s.read().data());
 	
 	emit setMessageBox(emitVal);
@@ -52,19 +54,25 @@ void SteganographyGUI::readBMP(void)
 
 void SteganographyGUI::writeBMP(QString message)
 {
+	// call the steganography class on the contents of the input box
 	s.write(message.toStdString());
 }
 
 void SteganographyGUI::saveBMP(void)
 {
+	// get the save location
 	QString filename = QFileDialog::getSaveFileName(this, tr("Save File"), QString(), tr("Images (*.bmp)"));
+	// make sure the user didn't cancel...
 	if(filename.isEmpty()) return;
+	// save
 	BMP_Handler::saveBMP(filename.toStdString().data(), s.getData(), height, width);
 }
 
 void SteganographyGUI::updateCharRemainingSlot(QString input)
 {
+	// calculate number of remaining bits
 	int num = maxBits - input.size();
+	// disable/enable write button as necessary
 	if (num <= 0)
 	{
 		// Disable the write button: too much text present 
@@ -74,6 +82,7 @@ void SteganographyGUI::updateCharRemainingSlot(QString input)
 	{
 		emit toggleEnabled(true);
 	}
+	// update GUI
 	std::string msg = "Characters Remaining: " + std::to_string(num);
 	emit updateCharRemaining(QString(msg.data()));
 }
